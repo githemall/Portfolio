@@ -104,12 +104,30 @@ optimizer = optim.SGD(model.fc.parameters(), lr=0.001, momentum=0.9)
 
 학습된 `model_ft` 모델이 검증용 이미지를 어떻게 예측하는지 시각화한 결과입니다.
 
-**[수정: `visualize_model(model_ft)` 실행 결과 이미지를 캡처해서 첨부하세요.]**
 
 <img width="158" height="151" alt="image" src="https://github.com/user-attachments/assets/5fb1ee7b-6eda-4005-a373-914b0b87cfbb" />
-
-![Prediction Result](<이미지 경로 또는 스크린샷>)
+<img width="140" height="151" alt="image" src="https://github.com/user-attachments/assets/c5f2e582-c261-4938-9ebf-487e6d5c6130" />
+<img width="140" height="151" alt="image" src="https://github.com/user-attachments/assets/2ddaffd7-7801-476a-bf9b-b1bd16ba9e0a" />
+<img width="179" height="151" alt="image" src="https://github.com/user-attachments/assets/ff56e0c8-afbe-461b-be90-edab1f4fe2d3" />
 
 ---
 
+##  배운 점 및 트러블슈팅
 
+* **전이 학습 전략 비교:** 두 가지 핵심 전략(Fine-tuning, Feature Extraction)을 코드로 직접 구현하고, **정확도와 학습 시간의 트레이드오프 관계**를 실험을 통해 명확히 이해했습니다.
+
+* **성능 병목(Bottleneck) 분석:**
+    * **현상:** 초기 `ResNet-18` 모델 실험에서 두 전략의 학습 시간 차이가 거의 없는 현상을 발견했습니다. 배치 사이즈를 늘리고, 더 무거운 `ResNet-50` 모델로 변경하는 추가 실험을 진행했습니다.
+    * **원인:** 모델의 순수 계산 시간보다 **데이터 로딩 및 전처리 과정이 성능 병목**으로 작용하고 있음을 확인했습니다. 제 개발 환경(GPU)에서는 ResNet-50 정도의 연산도 매우 빠르게 처리되어, 데이터 I/O 시간이 전체 학습 시간을 좌우하는 주요인이었습니다.
+    * **교훈:** 모델의 성능 튜닝 시, 코드뿐만 아니라 하드웨어와 데이터 파이프라인까지 종합적으로 고려해야 한다는 실무적인 교훈을 얻었습니다.
+
+* **이미지 채널(Channel) 에러 해결:**
+    * **문제:** 단일 이미지 예측 시, 4채널(RGBA) PNG 파일이 3채널(RGB)을 가정하는 `Normalize` 단계에서 `RuntimeError`를 발생시켰습니다.
+    * **해결:** `Image.open()` 직후 **`.convert('RGB')`**를 추가하여 모든 입력 이미지의 채널을 3개로 통일시켜 문제를 해결했습니다.
+
+---
+
+##  관련 링크
+
+* **블로그 포스트:** [Velog - ResNet-50 전이학습 프로젝트 회고](<블로그 링크>)
+* **참고 튜토리얼:** [PyTorch - Transfer Learning for Computer Vision Tutorial](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html)
