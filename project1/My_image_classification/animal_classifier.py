@@ -170,8 +170,7 @@ def visualize_model(model, num_images=6):
 # %%
 model_ft = models.resnet18(weights='IMAGENET1K_V1')
 num_ftrs = model_ft.fc.in_features
-# 여기서 각 출력 샘플의 크기는 2로 설정합니다.
-# 또는, ``nn.Linear(num_ftrs, len (class_names))`` 로 일반화할 수 있습니다.
+# 여기서 각 출력 샘플의 크기를 ``nn.Linear(num_ftrs, len (class_names))`` 로 일반화
 model_ft.fc = nn.Linear(num_ftrs, len (class_names))
 
 model_ft = model_ft.to(device)
