@@ -129,5 +129,5 @@ optimizer = optim.SGD(model.fc.parameters(), lr=0.001, momentum=0.9)
 
 ##  관련 링크
 
-* **블로그 포스트:** [Velog - ResNet-50 전이학습 프로젝트 회고](<블로그 링크>)
+* **블로그 포스트:** [Velog - 내 GPU는 너무 빨랐다: PyTorch 전이 학습 성능 비교 삽질기](https://velog.io/@githemall/%EB%82%B4-GPU%EB%8A%94-%EB%84%88%EB%AC%B4-%EB%B9%A8%EB%9E%90%EB%8B%A4-PyTorch-%EC%A0%84%EC%9D%B4-%ED%95%99%EC%8A%B5-%EC%84%B1%EB%8A%A5-%EB%B9%84%EA%B5%90-%EC%82%BD%EC%A7%88%EA%B8%B0)
 * **참고 튜토리얼:** [PyTorch - Transfer Learning for Computer Vision Tutorial](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html)
