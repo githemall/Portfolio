@@ -107,7 +107,7 @@ optimizer = optim.SGD(model.fc.parameters(), lr=0.001, momentum=0.9)
 
 <img width="158" height="151" alt="image" src="https://github.com/user-attachments/assets/5fb1ee7b-6eda-4005-a373-914b0b87cfbb" />
 <img width="140" height="151" alt="image" src="https://github.com/user-attachments/assets/c5f2e582-c261-4938-9ebf-487e6d5c6130" />
-<img width="140" height="151" alt="image" src="https://github.com/user-attachments/assets/2ddaffd7-7801-476a-bf9b-b1bd16ba9e0a" />
+<img width="135" height="151" alt="image" src="https://github.com/user-attachments/assets/04e28f53-4ffa-4369-8c71-095cec37a1ab" />
 <img width="179" height="151" alt="image" src="https://github.com/user-attachments/assets/ff56e0c8-afbe-461b-be90-edab1f4fe2d3" />
 
 ---
