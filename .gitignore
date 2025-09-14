@@ -1,2 +1,5 @@
 # model
 *.bin
+
+# Python-specific files
+__pycache__/
