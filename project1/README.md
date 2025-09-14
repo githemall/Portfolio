@@ -24,7 +24,7 @@
     * `Matplotlib`
     * `Pillow (PIL)`
 * **개발 환경:**
-* **OS:** Windows 11
+* **OS:** WSL (Ubuntu)
 * **IDE:** Visual Studio Code
 * **Language:** Python 3.9.22
 * **GPU:** NVIDIA GeForce RTX 3060TI
@@ -33,7 +33,7 @@
     * `torchvision==0.23.0+cu128`
     * `numpy==1.24.3`
     * `matplotlib==3.9.4`
-* **사전 학습 모델:** `ResNet-18`
+* **사전 학습 모델:** `ResNet-50`
 
 ---
 
